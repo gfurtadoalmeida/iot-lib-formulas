@@ -14,6 +14,6 @@ set_target_properties (iot-lib-formulas PROPERTIES
   CXX_EXTENSIONS FALSE
 )
 
-if(BUILD_TEST EQUAL OFF)
+if(BUILD_TEST EQUAL ON)
     add_subdirectory(test)
 endif()
