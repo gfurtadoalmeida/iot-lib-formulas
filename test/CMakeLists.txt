@@ -2,6 +2,7 @@ file(GLOB srcsTstTHERM "thermistor/*.cpp")
 file(GLOB srcsTstVOLTDIV "volt_divider/*.cpp")
 
 list(APPEND srcsTst "test_runner.cpp")
+list(APPEND srcsTst "conversion_test.cpp")
 list(APPEND srcsTst ${srcsTstTHERM})
 list(APPEND srcsTst ${srcsTstVOLTDIV})
 

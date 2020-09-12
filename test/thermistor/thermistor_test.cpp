@@ -48,19 +48,19 @@ TEST(THERMISTOR, Calc_temperature_Steinhart)
 
 TEST(THERMISTOR, Calc_temperature_Steinhart_Betha)
 {
-    double temperature = thermistor_calc_temperature_steinhart_betha(COMMON_THERM_AMBIENT_TEMP_KELVIN,
+    double temperature = thermistor_calc_temperature_steinhart_betha(COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN,
                                                                      10000.00,
                                                                      3950.00,
                                                                      10000.00);
 
-    DOUBLES_EQUAL(COMMON_THERM_AMBIENT_TEMP_KELVIN, temperature, 0.0000001);
+    DOUBLES_EQUAL(COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN, temperature, 0.0000001);
 }
 
 TEST(THERMISTOR, Calc_resistance_Steinhart_Betha)
 {
-    double resistance = thermistor_calc_resistance_steinhart_betha(COMMON_THERM_AMBIENT_TEMP_KELVIN,
+    double resistance = thermistor_calc_resistance_steinhart_betha(COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN,
                                                                    10000.00,
                                                                    3950.00,
-                                                                   COMMON_THERM_AMBIENT_TEMP_KELVIN);
+                                                                   COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN);
     DOUBLES_EQUAL(10000.00, resistance, 0.0000001);
 }
