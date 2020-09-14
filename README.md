@@ -17,6 +17,7 @@ A **C** library with functions for common formulas used in the electronic field.
   * Calculate resistance using inverse Steinhart-Hart Betha equation.
 * Voltage Divider:
   * Resistive:
+    * Calculate voltage in.
     * Calculate voltage out.
     * Calculate resistor 1 resistance.
     * Calculate resistor 2 resistance.
