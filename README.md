@@ -1,5 +1,6 @@
 # IoT Formulas Library
 
+![Azure DevOps builds](https://img.shields.io/azure-devops/build/gfurtadoalmeida/GitHub/43?) ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/gfurtadoalmeida/GitHub/43)  
 A **C** library with functions for common formulas used in the electronic field.  
 
 ## Characteristics
