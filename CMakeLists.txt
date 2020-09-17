@@ -1,7 +1,7 @@
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.8)
 project(iot-lib-formulas VERSION 0.1.0)
 
-option(BUILD_TEST "Build test program" OFF)
+option(BUILD_TEST "Build test program")
 
 add_subdirectory("lib")
 
@@ -14,6 +14,6 @@ set_target_properties (iot-lib-formulas PROPERTIES
   CXX_EXTENSIONS FALSE
 )
 
-if(BUILD_TEST EQUAL ON)
+if(BUILD_TEST MATCHES ON)
     add_subdirectory(test)
 endif()

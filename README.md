@@ -53,7 +53,7 @@ As soon as I have time and this library stabilizes I'll write the documentation.
 
 ## Build Requirements
 
-* [CMake](https://cmake.org/): 3.15+
+* [CMake](https://cmake.org/): 3.8+
 * C/C++ compiler: I'm using [MSVC](https://visualstudio.microsoft.com/vs/features/cplusplus/).
 * [CppUTest](https://github.com/cpputest/cpputest): will be downloaded by CMake.
 

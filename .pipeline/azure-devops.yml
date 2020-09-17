@@ -1,0 +1,34 @@
+trigger:
+  branches:
+    include:
+      - master
+  paths:
+    include:
+      - 'lib/*'
+      - 'test/*'
+
+pool:
+  vmImage: 'windows-2019'
+
+steps:
+- task: CMake@1
+  displayName: Generate
+  inputs:
+    cmakeArgs: -DBUILD_TEST:BOOL=ON -G "Visual Studio 16 2019" -A x64 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
+- task: CMake@1
+  displayName: Build
+  inputs:
+    cmakeArgs: --build $(Build.Repository.LocalPath)\build --config Release --target ALL_BUILD
+- task: PowerShell@2
+  displayName: Test
+  inputs:
+    targetType: 'inline'
+    failOnStderr: true
+    script: |
+      &"$(Build.Repository.LocalPath)\build\test\release\test_app.exe" -ojunit -v
+- task: PublishTestResults@2
+  displayName: Publish Test Results
+  inputs:
+    testResultsFormat: 'JUnit'
+    testResultsFiles: '**/cpputest_*.xml'
+    failTaskOnFailedTests: true
