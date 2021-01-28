@@ -1,6 +1,8 @@
+file(GLOB srcsADC "src/adc/*.c")
 file(GLOB srcsTHERM "src/thermistor/*.c")
 file(GLOB srcsVOLTDIV "src/volt_divider/*.c")
 
+list(APPEND srcs ${srcsADC})
 list(APPEND srcs ${srcsTHERM})
 list(APPEND srcs ${srcsVOLTDIV})
 
