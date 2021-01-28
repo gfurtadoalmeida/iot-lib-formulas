@@ -44,7 +44,7 @@ extern "C"
      * @brief Calculates Steinhart-Hart coefficients.
      *
      * @details https://en.wikipedia.org/wiki/Steinhart%E2%80%93Hart_equation
-     * @note The narrowwer the temperature range, the greater the accuracy will be.
+     * @note The narrower the temperature range, the greater the accuracy will be.
      *
      * @param tp_A First temperature point.
      * @param tp_B Second temperature point.
@@ -59,8 +59,10 @@ extern "C"
     /**
      * @brief Calculates a thermistor temperature using Steinhart-Hart equation.
      * @details https://en.wikipedia.org/wiki/Steinhart%E2%80%93Hart_equation
+     *
      * @param coefficients Steinhart-Hart coefficients.
      * @param resistance Actual measured resistance, in ohms.
+     *
      * @return Temperature, in Kelvin.
      */
     double thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, double resistance);
@@ -72,7 +74,7 @@ extern "C"
      * @param therm_ambient_temperature Ambient temperature, in Kelvin,
      * used to calibrate the thermistor.
      * @param therm_ambient_resistance Thermistor resistance at ambient
-     * temperature (therm_ambient_temperature), in ohms.
+     * temperature, in ohms.
      * @param therm_betha Thermistor Betha value, given by the manufacturer.
      * @param resistance Actual measured resistance, in ohms.
      *
@@ -90,11 +92,11 @@ extern "C"
      * @param therm_ambient_temperature Ambient temperature, in Kelvin,
      * used to calibrate the thermistor.
      * @param therm_ambient_resistance Thermistor resistance at ambient
-     * temperature (therm_ambient_temperature), in homs.
+     * temperature, in ohms.
      * @param therm_betha Thermistor Betha value, given by the manufacturer.
      * @param temperature Actual measured temperature, in Kelvin.
      *
-     * @return resistance, in ohms.
+     * @return Resistance, in ohms.
      */
     double thermistor_calc_resistance_steinhart_betha(double therm_ambient_temperature,
                                                       double therm_ambient_resistance,
