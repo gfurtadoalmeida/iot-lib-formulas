@@ -40,10 +40,7 @@ jobs:
         SonarCloud: 'Sonar Cloud'
         organization: 'gfurtadoalmeida'
         scannerMode: 'CLI'
-        configMode: 'manual'
-        cliProjectKey: 'gfurtadoalmeida_iot-lib-formulas'
-        cliProjectName: 'iot-lib-formulas'
-        cliSources: '.'
+        configMode: 'file'
         extraProperties: |
           sonar.cfamily.threads=2
           sonar.cfamily.cache.enabled=false
