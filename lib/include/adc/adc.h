@@ -9,15 +9,25 @@ extern "C"
 #endif
 
     /**
+     * @brief Calculates the frequency range over which measurements will be taken and
+     * not be effected by the anti-aliasing low-pass filters; the alias-free region of the bandwidth.
+     * @details It is 80% of the bandwidth.
+     *
+     * @param bandwidth Frequency range over which measurements will be taken.
+     *
+     * @return Frequency span, in hertz.
+     */
+    double adc_calc_frequency_span(double bandwidth);
+
+    /**
      * @brief Calculates the optimal sampling frequency.
      * @details https://en.wikipedia.org/wiki/Nyquist%E2%80%93Shannon_sampling_theorem
      *
-     * @param highest_signal_frequency Highest frequency component of interest in
-     * the input signal, in hertz.
+     * @param bandwidth The frequency range over which measurements will be taken.
      *
      * @return Optimal sampling frequency, in hertz.
      */
-    double adc_calc_sample_optimal_frequency(double highest_signal_frequency);
+    double adc_calc_sample_optimal_frequency(double bandwidth);
 
     /**
      * @brief Calculates how many times one needs to sample to increase an ADC resolution.

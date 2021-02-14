@@ -7,9 +7,14 @@ extern "C"
 {
 #endif
 
-    double adc_calc_sample_optimal_frequency(double highest_signal_frequency)
+    double adc_calc_frequency_span(double bandwidth)
     {
-        return highest_signal_frequency * 2.0;
+        return bandwidth * 0.8;
+    }
+
+    double adc_calc_sample_optimal_frequency(double bandwidth)
+    {
+        return bandwidth * 2.0;
     }
 
     uint16_t adc_calc_oversample_count(uint8_t additional_resolution_bits)

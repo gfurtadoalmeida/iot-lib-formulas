@@ -5,6 +5,13 @@
 
 TEST_GROUP(ADC){};
 
+TEST(ADC, Calc_Frequency_Span)
+{
+    const double span = adc_calc_frequency_span(100);
+
+    DOUBLES_EQUAL(span, 80.0, 0.001);
+}
+
 TEST(ADC, Calc_Sample_Optimal_Frequency)
 {
     const double frequency = adc_calc_sample_optimal_frequency(60.0);
