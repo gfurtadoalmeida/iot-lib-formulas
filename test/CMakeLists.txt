@@ -18,7 +18,7 @@ FetchContent_Declare(
     GIT_TAG        latest-passing-build
 )
 
-set(TESTS OFF CACHE BOOL "Switch off CppUTest Test build")
+set(TESTS OFF CACHE BOOL "Switch off CppUTest Self-Test build")
 
 FetchContent_MakeAvailable(CppUTest)
 
