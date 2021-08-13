@@ -7,12 +7,12 @@ extern "C"
 #endif
 
 /**
- * Electron charge, in Coulombs = 1.602 * 10^-19
+ * Electron charge, in Coulombs: 1.602 * 10^-19
  */
-#define ELECTRON_CHARGE 0.0000000000000000001602
+#define ELECTRON_CHARGE 1.602e-19
 
 /**
- * Euler's number = 2.7182818284
+ * Euler's number: 2.7182818284
  */
 #define EULER_NUMBER 2.7182818284
 

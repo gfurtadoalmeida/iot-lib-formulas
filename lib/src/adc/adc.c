@@ -22,8 +22,7 @@ extern "C"
         return (uint16_t)pow(4, additional_resolution_bits);
     }
 
-    double adc_calc_oversample_frequency(uint8_t additional_resolution_bits,
-                                         double sampling_frequency)
+    double adc_calc_oversample_frequency(uint8_t additional_resolution_bits, double sampling_frequency)
     {
         return (uint16_t)(pow(4, additional_resolution_bits) * sampling_frequency);
     }

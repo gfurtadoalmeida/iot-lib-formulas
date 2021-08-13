@@ -9,6 +9,10 @@ A **C** library with functions for common formulas used in the electronic field.
 * Testable: every function has a test.
 * Independent: doesn't rely on other libraries or frameworks.
 
+## Integrations
+
+* ESP-IDF: can be used as a component, with the name `iot-lib-formulas`.
+
 ## Documentation
 
 Everything is on the [wiki](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki).
