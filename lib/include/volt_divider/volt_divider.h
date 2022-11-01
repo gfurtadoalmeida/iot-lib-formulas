@@ -1,6 +1,8 @@
 #ifndef __IOT_LIB_VOLT_DIVIDER_H__
 #define __IOT_LIB_VOLT_DIVIDER_H__
 
+#include "common.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -16,7 +18,7 @@ extern "C"
      *
      * @return Voltage in, in millivolts.
      */
-    double volt_divider_resistive_calc_voltage_in(double resistor_1, double resistor_2, double voltage_out);
+    FLOAT_TYPE volt_divider_resistive_calc_voltage_in(FLOAT_TYPE resistor_1, FLOAT_TYPE resistor_2, FLOAT_TYPE voltage_out);
 
     /**
      * @brief Calculates the resistor 1 resistance, of a resistive voltage divider.
@@ -28,7 +30,7 @@ extern "C"
      *
      * @return Resistor 1 resistance, in ohms.
      */
-    double volt_divider_resistive_calc_resistor_1(double voltage_in, double resistor_2, double voltage_out);
+    FLOAT_TYPE volt_divider_resistive_calc_resistor_1(FLOAT_TYPE voltage_in, FLOAT_TYPE resistor_2, FLOAT_TYPE voltage_out);
 
     /**
      * @brief Calculates the resistor 2 resistance, of a resistive voltage divider.
@@ -40,7 +42,7 @@ extern "C"
      *
      * @return Resistor 2 resistance, in ohms.
      */
-    double volt_divider_resistive_calc_resistor_2(double voltage_in, double resistor_1, double voltage_out);
+    FLOAT_TYPE volt_divider_resistive_calc_resistor_2(FLOAT_TYPE voltage_in, FLOAT_TYPE resistor_1, FLOAT_TYPE voltage_out);
 
     /**
      * @brief Calculates the voltage out, of a resistive voltage divider.
@@ -52,7 +54,7 @@ extern "C"
      *
      * @return Voltage out, in millivolts.
      */
-    double volt_divider_resistive_calc_voltage_out(double voltage_in, double resistor_1, double resistor_2);
+    FLOAT_TYPE volt_divider_resistive_calc_voltage_out(FLOAT_TYPE voltage_in, FLOAT_TYPE resistor_1, FLOAT_TYPE resistor_2);
 
 #ifdef __cplusplus
 }

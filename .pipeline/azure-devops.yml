@@ -15,7 +15,7 @@ variables:
   build_wrapper_exe: ''
 
 jobs:
-  - job: build_lib
+  - job: build_lib_float
     displayName: Build Lib
     steps:
     - task: PowerShell@2
@@ -50,7 +50,7 @@ jobs:
     - task: CMake@1
       displayName: CMake Generate
       inputs:
-        cmakeArgs: -DBUILD_TEST:BOOL=OFF -G "Visual Studio 16 2019" -A Win32 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
+        cmakeArgs: -DIOT_LIB_FORMULAS_USE_FLOAT:INT=1 -DBUILD_TEST:BOOL=OFF -G "Visual Studio 16 2019" -A Win32 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
     - task: PowerShell@2
       displayName: CMake Build
       inputs:
@@ -66,9 +66,47 @@ jobs:
       displayName: Sonar Publish
       inputs:
         pollingTimeoutSec: '300'
-  - job: run_tests
+  - job: run_tests_float
     displayName: Run Tests
-    dependsOn: build_lib
+    dependsOn: build_lib_float
+    steps:
+    - task: CMake@1
+      displayName: CMake Generate
+      inputs:
+        cmakeArgs: -DIOT_LIB_FORMULAS_USE_FLOAT:INT=1 -DBUILD_TEST:BOOL=ON -G "Visual Studio 16 2019" -A Win32 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
+    - task: CMake@1
+      displayName: CMake Build
+      inputs:
+        workingDirectory: build
+        cmakeArgs: --build . --config Release
+    - task: PowerShell@2
+      displayName: Run Tests
+      inputs:
+        targetType: 'inline'
+        failOnStderr: true
+        script: |
+          &"$(Build.Repository.LocalPath)\build\test\release\test_app.exe" -ojunit -v
+    - task: PublishTestResults@2
+      displayName: Publish Results
+      inputs:
+        testResultsFormat: 'JUnit'
+        testResultsFiles: '**/cpputest_*.xml'
+        failTaskOnFailedTests: true
+  - job: build_lib_double
+    displayName: Build Lib
+    dependsOn: run_tests_float
+    steps:
+    - task: CMake@1
+      displayName: CMake Generate
+      inputs:
+        cmakeArgs: -DBUILD_TEST:BOOL=OFF -G "Visual Studio 16 2019" -A Win32 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
+    - task: CMake@1
+      displayName: CMake Generate
+      inputs:
+        cmakeArgs: --build . --config Release -DBUILD_TEST:BOOL=OFF -G "Visual Studio 16 2019" -A Win32 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
+  - job: run_tests_double
+    displayName: Run Tests
+    dependsOn: build_lib_double
     steps:
     - task: CMake@1
       displayName: CMake Generate

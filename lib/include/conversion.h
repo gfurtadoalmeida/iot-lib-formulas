@@ -1,6 +1,8 @@
 #ifndef __IOT_LIB_CONV_H__
 #define __IOT_LIB_CONV_H__
 
+#include "common.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -11,42 +13,42 @@ extern "C"
  * @param kelvin Temperature, in Kelvin.
  * @return Temperature, in Celsius.
  */
-#define CONV_KELVIN_CELSIUS(kelvin) (kelvin - 273.15)
+#define CONV_KELVIN_CELSIUS(kelvin) (kelvin - FLOAT_CONST(273.15))
 
 /**
  * @brief Convert Kelvin to Fahrenheit.
  * @param kelvin Temperature, in Kelvin.
  * @return Temperature, in Fahrenheit.
  */
-#define CONV_KELVIN_FAHRENHEIT(kelvin) ((kelvin * 1.8) - 459.67)
+#define CONV_KELVIN_FAHRENHEIT(kelvin) ((kelvin * FLOAT_CONST(1.8)) - FLOAT_CONST(459.67))
 
 /**
  * @brief Convert Celsius to Kelvin.
  * @param kelvin Temperature, in Celsius.
  * @return Temperature, in Kelvin.
  */
-#define CONV_CELSIUS_KELVIN(celsius) (celsius + 273.15)
+#define CONV_CELSIUS_KELVIN(celsius) (celsius + FLOAT_CONST(273.15))
 
 /**
  * @brief Convert Celsius to Fahrenheit.
  * @param kelvin Temperature, in Celsius.
  * @return Temperature, in Fahrenheit.
  */
-#define CONV_CELSIUS_FAHRENHEIT(celsius) ((celsius * 1.8) + 32.0)
+#define CONV_CELSIUS_FAHRENHEIT(celsius) ((celsius * FLOAT_CONST(1.8)) + FLOAT_CONST(32.0))
 
 /**
  * @brief Convert Fahrenheit to Kelvin.
  * @param kelvin Temperature, in Fahrenheit.
  * @return Temperature, in Kelvin.
  */
-#define CONV_FAHRENHEIT_KELVIN(fahrenheit) ((fahrenheit + 459.67) * 0.55)
+#define CONV_FAHRENHEIT_KELVIN(fahrenheit) ((fahrenheit + FLOAT_CONST(459.67)) * FLOAT_CONST(0.55))
 
 /**
  * @brief Convert Fahrenheit to Celsius.
  * @param kelvin Temperature, in Fahrenheit.
  * @return Temperature, in Celsius.
  */
-#define CONV_FAHRENHEIT_CELSIUS(fahrenheit) ((fahrenheit - 32.0) * 1.8)
+#define CONV_FAHRENHEIT_CELSIUS(fahrenheit) ((fahrenheit - FLOAT_CONST(32.0)) * FLOAT_CONST(1.8))
 
 #ifdef __cplusplus
 }

@@ -5,22 +5,22 @@ extern "C"
 {
 #endif
 
-    double volt_divider_resistive_calc_voltage_in(double resistor_1, double resistor_2, double voltage_out)
+    FLOAT_TYPE volt_divider_resistive_calc_voltage_in(FLOAT_TYPE resistor_1, FLOAT_TYPE resistor_2, FLOAT_TYPE voltage_out)
     {
         return voltage_out / (resistor_2 / (resistor_1 + resistor_2));
     }
 
-    double volt_divider_resistive_calc_resistor_1(double voltage_in, double resistor_2, double voltage_out)
+    FLOAT_TYPE volt_divider_resistive_calc_resistor_1(FLOAT_TYPE voltage_in, FLOAT_TYPE resistor_2, FLOAT_TYPE voltage_out)
     {
-        return resistor_2 * ((voltage_in / voltage_out) - 1.0);
+        return resistor_2 * ((voltage_in / voltage_out) - FLOAT_CONST(1.0));
     }
 
-    double volt_divider_resistive_calc_resistor_2(double voltage_in, double resistor_1, double voltage_out)
+    FLOAT_TYPE volt_divider_resistive_calc_resistor_2(FLOAT_TYPE voltage_in, FLOAT_TYPE resistor_1, FLOAT_TYPE voltage_out)
     {
-        return resistor_1 * (1.0 / ((voltage_in / voltage_out) - 1.0));
+        return resistor_1 * (FLOAT_CONST(1.0) / ((voltage_in / voltage_out) - FLOAT_CONST(1.0)));
     }
 
-    double volt_divider_resistive_calc_voltage_out(double voltage_in, double resistor_1, double resistor_2)
+    FLOAT_TYPE volt_divider_resistive_calc_voltage_out(FLOAT_TYPE voltage_in, FLOAT_TYPE resistor_1, FLOAT_TYPE resistor_2)
     {
         return (resistor_2 / (resistor_1 + resistor_2)) * voltage_in;
     }

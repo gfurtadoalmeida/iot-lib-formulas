@@ -1,6 +1,8 @@
 #ifndef __IOT_LIB_THERM_H__
 #define __IOT_LIB_THERM_H__
 
+#include "common.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -9,15 +11,15 @@ extern "C"
 /**
  * Common ambient temperature, in Kelvin, used to calibrate thermistors probes: 298.15 K, 25°C, 77°F
  */
-#define COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN 298.15
+#define COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN FLOAT_CONST(298.15)
 /**
  * Common thermistors probes resistance, in ohms: 10K
  */
-#define COMMON_THERM_PROBE_RESISTANCE 10000.0
+#define COMMON_THERM_PROBE_RESISTANCE FLOAT_CONST(10000.0)
 /**
  * Common thermistors probes Betha: 3950.0
  */
-#define COMMON_THERM_PROBE_BETHA 3950.0
+#define COMMON_THERM_PROBE_BETHA FLOAT_CONST(3950.0)
 
     /**
      * @typedef temperature_point_t
@@ -25,8 +27,8 @@ extern "C"
      */
     typedef struct
     {
-        double temperature; /*!< Temperature, in Kelvin. */
-        double resistance;  /*!< resistance, in ohms. */
+        FLOAT_TYPE temperature; /*!< Temperature, in Kelvin. */
+        FLOAT_TYPE resistance;  /*!< resistance, in ohms. */
     } temperature_point_t;
 
     /**
@@ -35,9 +37,9 @@ extern "C"
      */
     typedef struct
     {
-        double a;
-        double b;
-        double c;
+        FLOAT_TYPE a;
+        FLOAT_TYPE b;
+        FLOAT_TYPE c;
     } steinhart_coefficients_t;
 
     /**
@@ -65,7 +67,7 @@ extern "C"
      *
      * @return Temperature, in Kelvin.
      */
-    double thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, double resistance);
+    FLOAT_TYPE thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, FLOAT_TYPE resistance);
 
     /**
      * @brief Calculates a thermistor temperature using Steinhart-Hart Betha equation.
@@ -80,10 +82,10 @@ extern "C"
      *
      * @return Temperature, in Kelvin.
      */
-    double thermistor_calc_temperature_steinhart_betha(double therm_ambient_temperature,
-                                                       double therm_ambient_resistance,
-                                                       double therm_betha,
-                                                       double resistance);
+    FLOAT_TYPE thermistor_calc_temperature_steinhart_betha(FLOAT_TYPE therm_ambient_temperature,
+                                                           FLOAT_TYPE therm_ambient_resistance,
+                                                           FLOAT_TYPE therm_betha,
+                                                           FLOAT_TYPE resistance);
 
     /**
      * @brief Calculates a thermistor resistance using inverse Steinhart-Hart Betha equation.
@@ -98,10 +100,10 @@ extern "C"
      *
      * @return Resistance, in ohms.
      */
-    double thermistor_calc_resistance_steinhart_betha(double therm_ambient_temperature,
-                                                      double therm_ambient_resistance,
-                                                      double therm_betha,
-                                                      double temperature);
+    FLOAT_TYPE thermistor_calc_resistance_steinhart_betha(FLOAT_TYPE therm_ambient_temperature,
+                                                          FLOAT_TYPE therm_ambient_resistance,
+                                                          FLOAT_TYPE therm_betha,
+                                                          FLOAT_TYPE temperature);
 
 #ifdef __cplusplus
 }

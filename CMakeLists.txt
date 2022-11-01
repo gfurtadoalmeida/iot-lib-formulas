@@ -16,6 +16,10 @@ else()
 
     option(BUILD_TEST "Build test program" OFF)
 
+    if(BUILD_TEST MATCHES ON)
+        add_compile_definitions(IOT_LIB_FORMULAS_USE_FLOAT=1)
+    endif()
+
     add_subdirectory("lib")
 
     set_target_properties (${CMAKE_PROJECT_NAME} PROPERTIES
