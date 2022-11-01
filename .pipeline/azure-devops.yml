@@ -16,7 +16,7 @@ variables:
 
 jobs:
   - job: build_lib_float
-    displayName: Build Lib
+    displayName: Build Lib (float)
     steps:
     - task: PowerShell@2
       displayName: Download Sonar Build Wrapper
@@ -67,7 +67,7 @@ jobs:
       inputs:
         pollingTimeoutSec: '300'
   - job: run_tests_float
-    displayName: Run Tests
+    displayName: Run Tests (float)
     dependsOn: build_lib_float
     steps:
     - task: CMake@1
@@ -93,7 +93,7 @@ jobs:
         testResultsFiles: '**/cpputest_*.xml'
         failTaskOnFailedTests: true
   - job: build_lib_double
-    displayName: Build Lib
+    displayName: Build Lib (double)
     dependsOn: run_tests_float
     steps:
     - task: CMake@1
@@ -101,11 +101,11 @@ jobs:
       inputs:
         cmakeArgs: -DBUILD_TEST:BOOL=OFF -G "Visual Studio 16 2019" -A Win32 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
     - task: CMake@1
-      displayName: CMake Generate
+      displayName: CMake Build
       inputs:
-        cmakeArgs: --build . --config Release -DBUILD_TEST:BOOL=OFF -G "Visual Studio 16 2019" -A Win32 -H$(Build.Repository.LocalPath) -B$(Build.Repository.LocalPath)\build
+        cmakeArgs: --build . --config Release
   - job: run_tests_double
-    displayName: Run Tests
+    displayName: Run Tests (double)
     dependsOn: build_lib_double
     steps:
     - task: CMake@1
