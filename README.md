@@ -5,7 +5,7 @@ A **C** library with functions for common formulas used by embedded systems.
 
 ## Characteristics
 
-* Portable-ish: only "double" is not portable.
+* Portable-ish: only `double` (or `float`, depending on the compilation)  is not portable.
 * Testable: every function has a test.
 * Independent: doesn't rely on other libraries or frameworks.
 
