@@ -10,14 +10,14 @@ extern "C"
                                                                     temperature_point_t tp_B,
                                                                     temperature_point_t tp_C)
     {
-        const FLOAT_TYPE log1 = FLOAT_LOG(tp_A.resistance);
-        const FLOAT_TYPE log2 = FLOAT_LOG(tp_B.resistance);
-        const FLOAT_TYPE log3 = FLOAT_LOG(tp_C.resistance);
-        const FLOAT_TYPE y1 = FLOAT_CONST(1.0) / tp_A.temperature;
-        const FLOAT_TYPE y2 = FLOAT_CONST(1.0) / tp_B.temperature;
-        const FLOAT_TYPE y3 = FLOAT_CONST(1.0) / tp_C.temperature;
-        const FLOAT_TYPE gamma2 = (y2 - y1) / (log2 - log1);
-        const FLOAT_TYPE gamma3 = (y3 - y1) / (log3 - log1);
+        const float_type log1 = FLOAT_LOG(tp_A.resistance);
+        const float_type log2 = FLOAT_LOG(tp_B.resistance);
+        const float_type log3 = FLOAT_LOG(tp_C.resistance);
+        const float_type y1 = FLOAT_CONST(1.0) / tp_A.temperature;
+        const float_type y2 = FLOAT_CONST(1.0) / tp_B.temperature;
+        const float_type y3 = FLOAT_CONST(1.0) / tp_C.temperature;
+        const float_type gamma2 = (y2 - y1) / (log2 - log1);
+        const float_type gamma3 = (y3 - y1) / (log3 - log1);
 
         steinhart_coefficients_t coeff;
         coeff.c = ((gamma3 - gamma2) / (log3 - log2)) * FLOAT_POW(log1 + log2 + log3, FLOAT_CONST(-1.0));
@@ -27,23 +27,23 @@ extern "C"
         return coeff;
     }
 
-    FLOAT_TYPE thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, FLOAT_TYPE resistance)
+    float_type thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, float_type resistance)
     {
         return FLOAT_CONST(1.0) / (coefficients.a + (coefficients.b * FLOAT_LOG(resistance)) + (coefficients.c * FLOAT_POW(FLOAT_LOG(resistance), FLOAT_CONST(3.0))));
     }
 
-    FLOAT_TYPE thermistor_calc_temperature_steinhart_betha(FLOAT_TYPE therm_ambient_temperature,
-                                                           FLOAT_TYPE therm_ambient_resistance,
-                                                           FLOAT_TYPE therm_betha,
-                                                           FLOAT_TYPE resistance)
+    float_type thermistor_calc_temperature_steinhart_betha(float_type therm_ambient_temperature,
+                                                           float_type therm_ambient_resistance,
+                                                           float_type therm_betha,
+                                                           float_type resistance)
     {
         return FLOAT_CONST(1.0) / ((FLOAT_CONST(1.0) / therm_ambient_temperature) + (FLOAT_CONST(1.0) / therm_betha) * FLOAT_LOG(resistance / therm_ambient_resistance));
     }
 
-    FLOAT_TYPE thermistor_calc_resistance_steinhart_betha(FLOAT_TYPE therm_ambient_temperature,
-                                                          FLOAT_TYPE therm_ambient_resistance,
-                                                          FLOAT_TYPE therm_betha,
-                                                          FLOAT_TYPE temperature)
+    float_type thermistor_calc_resistance_steinhart_betha(float_type therm_ambient_temperature,
+                                                          float_type therm_ambient_resistance,
+                                                          float_type therm_betha,
+                                                          float_type temperature)
     {
         return therm_ambient_resistance * FLOAT_POW(ELECTRON_CHARGE, (therm_betha * ((FLOAT_CONST(1.0) / temperature) - (FLOAT_CONST(1.0) / therm_ambient_temperature))));
     }

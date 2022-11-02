@@ -18,7 +18,7 @@ extern "C"
      *
      * @return Frequency span, in hertz.
      */
-    FLOAT_TYPE adc_calc_frequency_span(FLOAT_TYPE bandwidth);
+    float_type adc_calc_frequency_span(float_type bandwidth);
 
     /**
      * @brief Calculates the optimal sampling frequency.
@@ -28,7 +28,7 @@ extern "C"
      *
      * @return Optimal sampling frequency, in hertz.
      */
-    FLOAT_TYPE adc_calc_sample_optimal_frequency(FLOAT_TYPE bandwidth);
+    float_type adc_calc_sample_optimal_frequency(float_type bandwidth);
 
     /**
      * @brief Calculates how many times one needs to sample to increase an ADC resolution.
@@ -48,8 +48,8 @@ extern "C"
      *
      * @return New ADC sampling frequency.
      */
-    FLOAT_TYPE adc_calc_oversample_frequency(uint8_t additional_resolution_bits,
-                                             FLOAT_TYPE sampling_frequency);
+    float_type adc_calc_oversample_frequency(uint8_t additional_resolution_bits,
+                                             float_type sampling_frequency);
 
     /**
      * @brief Calculates the signal-to-noise ratio (ratio of the RMS signal power to
@@ -60,7 +60,7 @@ extern "C"
      *
      * @return Signal-to-noise ration, in decibels.
      */
-    FLOAT_TYPE adc_calc_signal_noise_ratio(uint8_t effective_number_bits);
+    float_type adc_calc_signal_noise_ratio(uint8_t effective_number_bits);
 
     /**
      * @brief Calculates the effective number of bits (ENOB) necessary to achieve a
@@ -71,7 +71,7 @@ extern "C"
      *
      * @return Effective number of bits.
      */
-    uint8_t adc_calc_effective_number_bits(FLOAT_TYPE signal_noise_ratio);
+    uint8_t adc_calc_effective_number_bits(float_type signal_noise_ratio);
 
     /**
      * @brief Calculates the least significant bit (LSB) value.
@@ -83,7 +83,7 @@ extern "C"
      *
      * @return LSB, in millivolts.
      */
-    FLOAT_TYPE adc_calc_least_significant_bit(uint8_t resolution_bits, FLOAT_TYPE reference_voltage);
+    float_type adc_calc_least_significant_bit(uint8_t resolution_bits, float_type reference_voltage);
 
     /**
      * @brief Calculates the least significant bit (LSB) value, for a differential ADC.
@@ -96,9 +96,9 @@ extern "C"
      *
      * @return LSB, in millivolts.
      */
-    FLOAT_TYPE adc_calc_least_significant_bit_diff(uint8_t resolution_bits,
-                                                   FLOAT_TYPE reference_voltage_pos,
-                                                   FLOAT_TYPE reference_voltage_neg);
+    float_type adc_calc_least_significant_bit_diff(uint8_t resolution_bits,
+                                                   float_type reference_voltage_pos,
+                                                   float_type reference_voltage_neg);
 
 #ifdef __cplusplus
 }

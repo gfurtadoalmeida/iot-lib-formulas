@@ -9,13 +9,13 @@ extern "C"
 #endif
 
 #if IOT_LIB_FORMULAS_USE_FLOAT == 1
-#define FLOAT_TYPE float
+typedef float float_type;
 #define FLOAT_CONST(value) value##f
 #define FLOAT_POW powf
 #define FLOAT_LOG logf
 #define FLOAT_FLOOR floorf
 #else
-#define FLOAT_TYPE double
+typedef double float_type;
 #define FLOAT_CONST(value) value
 #define FLOAT_POW pow
 #define FLOAT_LOG log

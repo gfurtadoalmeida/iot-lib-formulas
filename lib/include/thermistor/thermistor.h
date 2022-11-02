@@ -27,8 +27,8 @@ extern "C"
      */
     typedef struct
     {
-        FLOAT_TYPE temperature; /*!< Temperature, in Kelvin. */
-        FLOAT_TYPE resistance;  /*!< resistance, in ohms. */
+        float_type temperature; /*!< Temperature, in Kelvin. */
+        float_type resistance;  /*!< resistance, in ohms. */
     } temperature_point_t;
 
     /**
@@ -37,9 +37,9 @@ extern "C"
      */
     typedef struct
     {
-        FLOAT_TYPE a;
-        FLOAT_TYPE b;
-        FLOAT_TYPE c;
+        float_type a;
+        float_type b;
+        float_type c;
     } steinhart_coefficients_t;
 
     /**
@@ -67,7 +67,7 @@ extern "C"
      *
      * @return Temperature, in Kelvin.
      */
-    FLOAT_TYPE thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, FLOAT_TYPE resistance);
+    float_type thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, float_type resistance);
 
     /**
      * @brief Calculates a thermistor temperature using Steinhart-Hart Betha equation.
@@ -82,10 +82,10 @@ extern "C"
      *
      * @return Temperature, in Kelvin.
      */
-    FLOAT_TYPE thermistor_calc_temperature_steinhart_betha(FLOAT_TYPE therm_ambient_temperature,
-                                                           FLOAT_TYPE therm_ambient_resistance,
-                                                           FLOAT_TYPE therm_betha,
-                                                           FLOAT_TYPE resistance);
+    float_type thermistor_calc_temperature_steinhart_betha(float_type therm_ambient_temperature,
+                                                           float_type therm_ambient_resistance,
+                                                           float_type therm_betha,
+                                                           float_type resistance);
 
     /**
      * @brief Calculates a thermistor resistance using inverse Steinhart-Hart Betha equation.
@@ -100,10 +100,10 @@ extern "C"
      *
      * @return Resistance, in ohms.
      */
-    FLOAT_TYPE thermistor_calc_resistance_steinhart_betha(FLOAT_TYPE therm_ambient_temperature,
-                                                          FLOAT_TYPE therm_ambient_resistance,
-                                                          FLOAT_TYPE therm_betha,
-                                                          FLOAT_TYPE temperature);
+    float_type thermistor_calc_resistance_steinhart_betha(float_type therm_ambient_temperature,
+                                                          float_type therm_ambient_resistance,
+                                                          float_type therm_betha,
+                                                          float_type temperature);
 
 #ifdef __cplusplus
 }
