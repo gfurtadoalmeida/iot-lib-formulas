@@ -45,7 +45,7 @@ extern "C"
     } steinhart_coefficients_t;
 
     /**
-     * @brief Calculates Steinhart-Hart coefficients.
+     * @brief Calculate Steinhart-Hart coefficients.
      * @details https://en.wikipedia.org/wiki/Steinhart%E2%80%93Hart_equation
      * @note The narrower the temperature range, the greater the accuracy will be.
      * @param[in] tp_A First temperature point.
@@ -59,7 +59,7 @@ extern "C"
                                                 steinhart_coefficients_t *coefficients);
 
     /**
-     * @brief Calculates a thermistor temperature using Steinhart-Hart equation.
+     * @brief Calculate a thermistor temperature using Steinhart-Hart equation.
      * @details https://en.wikipedia.org/wiki/Steinhart%E2%80%93Hart_equation
      * @param[in] coefficients Steinhart-Hart coefficients.
      * @param[in] resistance Actual measured resistance, in ohms.
@@ -68,7 +68,7 @@ extern "C"
     float_type thermistor_calc_temperature_steinhart(const steinhart_coefficients_t *coefficients, float_type resistance);
 
     /**
-     * @brief Calculates a thermistor temperature using Steinhart-Hart Betha equation.
+     * @brief Calculate a thermistor temperature using Steinhart-Hart Betha equation.
      * @details https://en.wikipedia.org/wiki/Thermistor
      * @param[in] therm_ambient_temperature Ambient temperature, in Kelvin,
      * used to calibrate the thermistor.
@@ -84,7 +84,7 @@ extern "C"
                                                            float_type resistance);
 
     /**
-     * @brief Calculates a thermistor resistance using inverse Steinhart-Hart Betha equation.
+     * @brief Calculate a thermistor resistance using inverse Steinhart-Hart Betha equation.
      * @details https://en.wikipedia.org/wiki/Thermistor
      * @param[in] therm_ambient_temperature Ambient temperature, in Kelvin,
      * used to calibrate the thermistor.

@@ -9,7 +9,7 @@ extern "C"
 #endif
 
     /**
-     * @brief Calculates the voltage in, of a resistive voltage divider.
+     * @brief Calculate the voltage in, of a resistive voltage divider.
      * @details https://en.wikipedia.org/wiki/Voltage_divider
      * @param[in] resistor_1 Resistor 1 resistance, in ohms.
      * @param[in] resistor_2 Resistor 2 resistance, in ohms.
@@ -19,7 +19,7 @@ extern "C"
     float_type volt_divider_resistive_calc_voltage_in(float_type resistor_1, float_type resistor_2, float_type voltage_out);
 
     /**
-     * @brief Calculates the resistor 1 resistance, of a resistive voltage divider.
+     * @brief Calculate the resistor 1 resistance, of a resistive voltage divider.
      * @details https://en.wikipedia.org/wiki/Voltage_divider
      * @param[in] voltage_in Voltage in, in millivolts.
      * @param[in] resistor_2 Resistor 2 resistance, in ohms.
@@ -29,7 +29,7 @@ extern "C"
     float_type volt_divider_resistive_calc_resistor_1(float_type voltage_in, float_type resistor_2, float_type voltage_out);
 
     /**
-     * @brief Calculates the resistor 2 resistance, of a resistive voltage divider.
+     * @brief Calculate the resistor 2 resistance, of a resistive voltage divider.
      * @details https://en.wikipedia.org/wiki/Voltage_divider
      * @param[in] voltage_in Voltage in, in millivolts.
      * @param[in] resistor_1 Resistor 1 resistance, in ohms.
@@ -39,7 +39,7 @@ extern "C"
     float_type volt_divider_resistive_calc_resistor_2(float_type voltage_in, float_type resistor_1, float_type voltage_out);
 
     /**
-     * @brief Calculates the voltage out, of a resistive voltage divider.
+     * @brief Calculate the voltage out, of a resistive voltage divider.
      * @details https://en.wikipedia.org/wiki/Voltage_divider
      * @param[in] voltage_in Voltage in, in millivolts.
      * @param[in] resistor_1 Resistor 1 resistance, in ohms.
