@@ -26,7 +26,7 @@ jobs:
       run: cmake -DIOT_LIB_FORMULAS_USE_FLOAT:INT=1 -DBUILD_TEST:BOOL=ON -B '${{github.workspace}}/build'
 
     - name: CMake Build with Sonar
-      run: build-wrapper-linux-x86-64 cmake --build '${{github.workspace}}/build' --config Release
+      run: build-wrapper-linux-x86-64 --out-dir build_wrapper_output cmake --build '${{github.workspace}}/build' --config Release
 
     - name: Run Tests
       run: '${{github.workspace}}/build/test/release/test_app" -ojunit -v'
@@ -47,4 +47,4 @@ jobs:
       run: cmake --build '${{github.workspace}}/build' --config Release
 
     - name: Run Tests
-      run: '${{github.workspace}}/build/test/release/test_app" -ojunit -v'
+      run: "'${{github.workspace}}/build/test/release/test_app' -ojunit -v"
