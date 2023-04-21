@@ -1,4 +1,5 @@
-#include "volt_divider/volt_divider.h"
+#include "iot_lib_formulas/voltage_divider.h"
+#include "infrastructure.h"
 
 float_type volt_divider_resistive_calc_voltage_in(float_type resistor_1, float_type resistor_2, float_type voltage_out)
 {

@@ -1,4 +1,5 @@
-#include "adc/adc.h"
+#include "iot_lib_formulas/adc.h"
+#include "infrastructure.h"
 
 float_type adc_calc_frequency_span(float_type bandwidth)
 {
@@ -17,7 +18,7 @@ uint16_t adc_calc_oversample_count(uint8_t additional_resolution_bits)
 
 float_type adc_calc_oversample_frequency(uint8_t additional_resolution_bits, float_type sampling_frequency)
 {
-    return (uint16_t)(FLOAT_POW(4, additional_resolution_bits) * sampling_frequency);
+    return FLOAT_POW(4, additional_resolution_bits) * sampling_frequency;
 }
 
 float_type adc_calc_signal_noise_ratio(uint8_t effective_number_bits)

@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.8)
 
 if(ESP_PLATFORM MATCHES 1)
-    file(GLOB_RECURSE IOT_LIB_SOURCES "lib/src/**/*.c")
+    file(GLOB_RECURSE IOT_LIB_SOURCES "lib/src/*.c")
 
     idf_component_register(
         SRCS

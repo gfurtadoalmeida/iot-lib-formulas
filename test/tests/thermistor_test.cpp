@@ -1,5 +1,5 @@
 #include "CppUTest/TestHarness.h"
-#include "thermistor/thermistor.h"
+#include "iot_lib_formulas/thermistor.h"
 
 TEST_GROUP(THERMISTOR){};
 
@@ -17,7 +17,9 @@ TEST(THERMISTOR, Calc_Steinhart_coefficients)
     c3.temperature = float_type(322.039);
     c3.resistance = float_type(1000.00);
 
-    steinhart_coefficients_t coeff = thermistor_calc_steinhart_coefficients(c1, c2, c3);
+    steinhart_coefficients_t coeff = {0};
+
+    thermistor_calc_steinhart_coefficients(&c1, &c2, &c3, &coeff);
 
     DOUBLES_EQUAL(-0.0015925922146267837, coeff.a, 0.0000001);
     DOUBLES_EQUAL(0.0008205491888240184, coeff.b, 0.0000001);
@@ -38,9 +40,11 @@ TEST(THERMISTOR, Calc_temperature_Steinhart)
     c3.temperature = FLOAT_CONST(322.039);
     c3.resistance = FLOAT_CONST(1000.00);
 
-    steinhart_coefficients_t coeff = thermistor_calc_steinhart_coefficients(c1, c2, c3);
+    steinhart_coefficients_t coeff = {0};
 
-    float_type temperature = thermistor_calc_temperature_steinhart(coeff, FLOAT_CONST(1800.00));
+    thermistor_calc_steinhart_coefficients(&c1, &c2, &c3, &coeff);
+
+    float_type temperature = thermistor_calc_temperature_steinhart(&coeff, FLOAT_CONST(1800.00));
 
     DOUBLES_EQUAL(301.3732, temperature, 0.0001);
 }

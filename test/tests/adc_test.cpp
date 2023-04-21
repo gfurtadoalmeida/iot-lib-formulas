@@ -1,5 +1,5 @@
 #include "CppUTest/TestHarness.h"
-#include "adc/adc.h"
+#include "iot_lib_formulas/adc.h"
 
 TEST_GROUP(ADC){};
 

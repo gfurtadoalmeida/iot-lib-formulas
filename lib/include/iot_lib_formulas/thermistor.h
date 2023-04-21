@@ -1,7 +1,7 @@
-#ifndef __IOT_LIB_THERM_H__
-#define __IOT_LIB_THERM_H__
+#ifndef __IOT_LIB_FORMULAS_THERM_H__
+#define __IOT_LIB_FORMULAS_THERM_H__
 
-#include "common.h"
+#include "float_type.h"
 
 #ifdef __cplusplus
 extern "C"
@@ -51,11 +51,12 @@ extern "C"
      * @param[in] tp_A First temperature point.
      * @param[in] tp_B Second temperature point.
      * @param[in] tp_C Third temperature point.
-     * @return Steinhart-Hart coefficients.
+     * @param[out] coefficients Steinhart-Hart coefficients.
      */
-    steinhart_coefficients_t thermistor_calc_steinhart_coefficients(temperature_point_t tp_A,
-                                                                    temperature_point_t tp_B,
-                                                                    temperature_point_t tp_C);
+    void thermistor_calc_steinhart_coefficients(const temperature_point_t *tp_A,
+                                                const temperature_point_t *tp_B,
+                                                const temperature_point_t *tp_C,
+                                                steinhart_coefficients_t *coefficients);
 
     /**
      * @brief Calculates a thermistor temperature using Steinhart-Hart equation.
@@ -64,7 +65,7 @@ extern "C"
      * @param[in] resistance Actual measured resistance, in ohms.
      * @return Temperature, in Kelvin.
      */
-    float_type thermistor_calc_temperature_steinhart(const steinhart_coefficients_t coefficients, float_type resistance);
+    float_type thermistor_calc_temperature_steinhart(const steinhart_coefficients_t *coefficients, float_type resistance);
 
     /**
      * @brief Calculates a thermistor temperature using Steinhart-Hart Betha equation.

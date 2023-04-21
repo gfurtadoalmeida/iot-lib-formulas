@@ -1,10 +1,4 @@
-file(GLOB srcsADC "src/adc/*.c")
-file(GLOB srcsTHERM "src/thermistor/*.c")
-file(GLOB srcsVOLTDIV "src/volt_divider/*.c")
-
-list(APPEND srcs ${srcsADC})
-list(APPEND srcs ${srcsTHERM})
-list(APPEND srcs ${srcsVOLTDIV})
+file(GLOB srcs "src/*.c")
 
 add_library(${CMAKE_PROJECT_NAME} STATIC ${srcs})
 

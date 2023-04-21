@@ -1,7 +1,7 @@
-#ifndef __IOT_LIB_CONV_H__
-#define __IOT_LIB_CONV_H__
+#ifndef __IOT_LIB_FORMULAS_TEMPERATURE_H__
+#define __IOT_LIB_FORMULAS_TEMPERATURE_H__
 
-#include "common.h"
+#include "float_type.h"
 
 #ifdef __cplusplus
 extern "C"

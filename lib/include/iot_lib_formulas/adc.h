@@ -1,8 +1,8 @@
-#ifndef __IOT_LIB_ADC_H__
-#define __IOT_LIB_ADC_H__
+#ifndef __IOT_LIB_FORMULAS_ADC_H__
+#define __IOT_LIB_FORMULAS_ADC_H__
 
 #include <stdint.h>
-#include "common.h"
+#include "float_type.h"
 
 #ifdef __cplusplus
 extern "C"

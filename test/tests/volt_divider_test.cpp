@@ -1,5 +1,5 @@
 #include "CppUTest/TestHarness.h"
-#include "volt_divider/volt_divider.h"
+#include "iot_lib_formulas/voltage_divider.h"
 
 TEST_GROUP(VOLT_DIVIDER){};
 

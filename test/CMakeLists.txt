@@ -1,14 +1,8 @@
-file(GLOB srcsTstADC "adc/*.cpp")
-file(GLOB srcsTstTHERM "thermistor/*.cpp")
-file(GLOB srcsTstVOLTDIV "volt_divider/*.cpp")
+file(GLOB srcs "tests/*.cpp")
 
-list(APPEND srcsTst "test_runner.cpp")
-list(APPEND srcsTst "conversion_test.cpp")
-list(APPEND srcsTst ${srcsTstADC})
-list(APPEND srcsTst ${srcsTstTHERM})
-list(APPEND srcsTst ${srcsTstVOLTDIV})
+list(APPEND srcs "test_runner.cpp")
 
-add_executable(test_app ${srcsTst})
+add_executable(test_app ${srcs})
 
 include(FetchContent)
 
@@ -22,8 +16,7 @@ set(TESTS OFF CACHE BOOL "Switch off CppUTest Self-Test build")
 
 FetchContent_MakeAvailable(CppUTest)
 
-target_include_directories(test_app PUBLIC ".")
-target_include_directories(test_app PUBLIC "../lib/include")
+target_include_directories(test_app PRIVATE "../lib/include")
 target_include_directories(test_app PRIVATE "../lib/private_include")
 
 target_link_libraries(test_app PRIVATE iot-lib-formulas)

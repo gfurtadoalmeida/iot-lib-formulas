@@ -1,7 +1,7 @@
-#ifndef __IOT_LIB_VOLT_DIVIDER_H__
-#define __IOT_LIB_VOLT_DIVIDER_H__
+#ifndef __IOT_LIB_FORMULAS_VOLT_DIVIDER_H__
+#define __IOT_LIB_FORMULAS_VOLT_DIVIDER_H__
 
-#include "common.h"
+#include "float_type.h"
 
 #ifdef __cplusplus
 extern "C"
