@@ -6,7 +6,7 @@ A **C** library with functions for common formulas used by embedded systems.
 ## Characteristics
 
 * Portable-ish: only `double` (or `float`, [depending on the compilation](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Choosing-the-Decimal-Type))  is not portable.
-* Testable: every function has a test.
+* Testable: 20+ tests.
 * Independent: doesn't rely on other libraries or frameworks.
 
 ## Integrations
