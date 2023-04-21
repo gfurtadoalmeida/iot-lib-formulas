@@ -1,0 +1,50 @@
+name: build
+
+on:
+  push:
+    branches: [ "master" ]
+    paths:
+      - 'lib/**'
+      - 'test/**'
+  pull_request:
+    branches: [ "master" ]
+  workflow_dispatch:
+
+jobs:
+  build_float:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Install Sonar
+      uses: sonarsource/sonarcloud-github-c-cpp@v1
+
+    - name: CMake Generate
+      run: -DIOT_LIB_FORMULAS_USE_FLOAT:INT=1 -DBUILD_TEST:BOOL=ON -B '${{github.workspace}}/build'
+
+    - name: CMake Build with Sonar
+      run: build-wrapper-linux-x86-64 cmake --build '${{github.workspace}}/build' --config Release
+
+    - name: Run Tests
+      run: '${{github.workspace}}/build/test/release/test_app" -ojunit -v'
+
+    - name: Run Sonar Scanner
+      run: sonar-scanner --define sonar.login=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
+
+  build_double:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: CMake Generate
+      run: -DIOT_LIB_FORMULAS_USE_FLOAT:INT=0 -DBUILD_TEST:BOOL=ON -B '${{github.workspace}}/build'
+
+    - name: CMake Build
+      run: cmake --build '${{github.workspace}}/build' --config Release
+
+    - name: Run Tests
+      run: '${{github.workspace}}/build/test/release/test_app" -ojunit -v'
