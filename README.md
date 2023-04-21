@@ -19,10 +19,10 @@ Everything is on the [wiki](https://github.com/gfurtadoalmeida/iot-lib-formulas/
 ## Example
 
 ```cpp
-#include "volt_divider/volt_divider.h"
-#include "thermistor/thermistor.h"
-#include "conversion.h"
 #include <stdio.h>
+#include "iot_lib_formulas/voltage_divider.h"
+#include "iot_lib_formulas/thermistor.h"
+#include "iot_lib_formulas/temperature.h"
 
 void app_main(void)
 {
@@ -34,6 +34,6 @@ void app_main(void)
                                                                 resistor_1_resistance);
     double celsius = CONV_KELVIN_CELSIUS(kelvin);
 
-    prinft("Temperature: %f", celsius);
+    prinft("Temperature: %f celsius", celsius);
 }
 ```
