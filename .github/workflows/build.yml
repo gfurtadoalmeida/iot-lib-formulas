@@ -29,7 +29,7 @@ jobs:
       run: build-wrapper-linux-x86-64 --out-dir build_wrapper_output cmake --build '${{github.workspace}}/build' --config Release
 
     - name: Run Tests
-      run: '${{github.workspace}}/build/test/release/test_app" -ojunit -v'
+      run: "'${{github.workspace}}/build/test/test_app' -ojunit -v"
 
     - name: Run Sonar Scanner
       run: sonar-scanner --define sonar.login=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
@@ -47,4 +47,4 @@ jobs:
       run: cmake --build '${{github.workspace}}/build' --config Release
 
     - name: Run Tests
-      run: "'${{github.workspace}}/build/test/release/test_app' -ojunit -v"
+      run: "'${{github.workspace}}/build/test/test_app' -ojunit -v"
