@@ -23,17 +23,16 @@ typedef double float_type;
 #endif
 
 /**
- * Electron charge, in Coulombs: 1.602 * 10^-19
+ * @brief Electron charge, in Coulombs: 1.602 * 10^-19
  */
 #define ELECTRON_CHARGE FLOAT_CONST(1.602e-19)
 
 /**
- * Euler's number: 2.7182818284
+ * @brief Euler's number: 2.7182818284
  */
 #define EULER_NUMBER FLOAT_CONST(2.7182818284)
 
 #ifdef __cplusplus
 }
 #endif
-
-#endif //__IOT_LIB_CONST_H__
+#endif
