@@ -1,1 +1,1 @@
-.\build\test\Release\test_app.exe
+.\build\test\test_app.exe
