@@ -5,12 +5,16 @@ A **C** library with functions for common formulas used by embedded systems.
 
 ## Characteristics
 
-* Portable-ish: only `double` (or `float`, [depending on the compilation](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Choosing-the-Decimal-Type))  is not portable.
+* Portable-ish: only `double` and `float` [depending on the compilation](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Choosing-the-Decimal-Type), are not portable.
 * Testable: 20+ tests.
+* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/): can be used as a [component](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html#component-cmakelists-files), with the name `iot-lib-formulas`.
 
-## Integrations
+## Formulas For
 
-* ESP-IDF: can be used as a component, with the name `iot-lib-formulas`.
+* [ADC](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/ADC)
+* [Temperature](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Temperature)
+* [Thermistor](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Thermistor)
+* [Voltage Divider](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Voltage-Divider)
 
 ## Documentation
 
