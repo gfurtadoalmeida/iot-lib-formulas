@@ -20,7 +20,7 @@ A **C** library with functions for common formulas used by embedded systems.
 
 Everything is on the [wiki](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki).
 
-## Example
+## Example: Calculate Temperature in ºC from Thermistor on a Voltage Divider
 
 ```cpp
 #include <stdio.h>
@@ -30,13 +30,15 @@ Everything is on the [wiki](https://github.com/gfurtadoalmeida/iot-lib-formulas/
 
 void app_main(void)
 {
-    double resistor_1_resistance = volt_divider_resistive_calc_resistor_2(5.0, 10000.0, 2.5);
+    float_type thermistor_resistance = volt_divider_resistive_calc_resistor_2(5.0,     // 5V in.
+                                                                              10000.0, // 10K resistor 1
+                                                                              2.5);    // 2.5V out.
 
-    double kelvin = thermistor_calc_temperature_steinhart_betha(COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN,
-                                                                COMMON_THERM_PROBE_RESISTANCE,
-                                                                COMMON_THERM_PROBE_BETHA,
-                                                                resistor_1_resistance);
-    double celsius = CONV_KELVIN_CELSIUS(kelvin);
+    float_type kelvin = thermistor_calc_temperature_steinhart_betha(COMMON_THERM_PROBE_AMBIENT_TEMP_KELVIN,
+                                                                    COMMON_THERM_PROBE_RESISTANCE,
+                                                                    COMMON_THERM_PROBE_BETHA,
+                                                                    thermistor_resistance);
+    float_type celsius = CONV_KELVIN_CELSIUS(kelvin);
 
     prinft("Temperature: %f celsius", celsius);
 }
