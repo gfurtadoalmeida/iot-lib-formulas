@@ -1,37 +1,39 @@
 {
-    "[cpp]": {
-        "editor.quickSuggestions": {
-            "comments": "on",
-            "strings": "on",
-            "other": "on"
-        }
-    },
-    "[c]": {
-        "editor.quickSuggestions": {
-            "comments": "on",
-            "strings": "on",
-            "other": "on"
-        }
-    },
-    "cmake.configureOnOpen": false,
-    "cmake.generator": "Ninja",
-    "cmake.configureArgs": [
-        "-DBUILD_TEST:BOOL=ON",
-        "CMAKE_EXPORT_COMPILE_COMMANDS"
-    ],
-    "cmake.buildArgs": [
-        "--config",
-        "Debug"
-    ],
-    "editor.formatOnSave": false,
-    "files.exclude": {
-        "**/.git": true,
-        "**/.svn": true,
-        "**/.hg": true,
-        "**/CVS": true,
-        "**/.DS_Store": true,
-        "build/": true,
-        "debug.log": true
-    },
-    "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json"
+  "[cpp]": {
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+  "[c]": {
+    "editor.quickSuggestions": {
+      "comments": "on",
+      "strings": "on",
+      "other": "on"
+    }
+  },
+  "cmake.configureOnOpen": false,
+  "cmake.generator": "Ninja",
+  "cmake.platform": "",
+  "cmake.configureArgs": [
+    "-DIOT_LIB_FORMULAS_USE_FLOAT:BOOL=ON",
+    "-DBUILD_TEST:BOOL=ON",
+    "CMAKE_EXPORT_COMPILE_COMMANDS"
+  ],
+  "cmake.buildArgs": [
+    "--config",
+    "Debug"
+  ],
+  "editor.formatOnSave": false,
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "**/build": true,
+    "debug.log": true
+  },
+  "sonarlint.pathToCompileCommands": "${workspaceFolder}/build/compile_commands.json"
 }
