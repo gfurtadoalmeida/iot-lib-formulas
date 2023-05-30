@@ -12,24 +12,29 @@ on:
 
 jobs:
   build_float:
-    runs-on: ubuntu-latest
+    runs-on: windows-2022
 
     steps:
     - uses: actions/checkout@v3
       with:
         fetch-depth: 0
 
+    - name: Get Latest CMake and Ninja
+      uses: lukka/get-cmake@latest
+
     - name: Install Sonar
       uses: sonarsource/sonarcloud-github-c-cpp@v1
 
     - name: CMake Generate
-      run: cmake -DIOT_LIB_FORMULAS_USE_FLOAT:INT=1 -DBUILD_TEST:BOOL=ON -B '${{github.workspace}}/build'
+      shell: pwsh
+      run: .\project.ps1 generate float
 
     - name: CMake Build with Sonar
-      run: build-wrapper-linux-x86-64 --out-dir build_wrapper_output cmake --build '${{github.workspace}}/build' --config Release
+      shell: pwsh
+      run: build-wrapper-win-x86-64.exe --out-dir build_wrapper_output pwsh.exe .\project.ps1 build
 
     - name: Run Tests
-      run: "'${{github.workspace}}/build/test/test_app' -ojunit -v"
+      run: .\project.ps1 test
 
     - name: Run Sonar Scanner
       run: sonar-scanner --define sonar.login=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
@@ -40,11 +45,16 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: CMake Generate
-      run: cmake -DIOT_LIB_FORMULAS_USE_FLOAT:INT=0 -DBUILD_TEST:BOOL=ON -B '${{github.workspace}}/build'
+    - name: Get Latest CMake and Ninja
+      uses: lukka/get-cmake@latest
 
-    - name: CMake Build
-      run: cmake --build '${{github.workspace}}/build' --config Release
+    - name: CMake Generate
+      shell: pwsh
+      run: .\project.ps1 generate double
+
+    - name: CMake Build with Sonar
+      shell: pwsh
+      run: .\project.ps1 build
 
     - name: Run Tests
-      run: "'${{github.workspace}}/build/test/test_app' -ojunit -v"
+      run: .\project.ps1 test
