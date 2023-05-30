@@ -1,1 +1,0 @@
-.\build\test\test_app.exe
