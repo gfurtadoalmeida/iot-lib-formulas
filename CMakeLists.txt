@@ -15,12 +15,12 @@ else()
     project(iot-lib-formulas VERSION 0.1.0)
 
     option(BUILD_TEST "Build test program" OFF)
-    option(IOT_LIB_FORMULAS_USE_FLOAT "Use float as decimal type" ON)
+    option(CONFIG_IOT_LIB_FORMULAS_USE_FLOAT "Use float as decimal type" ON)
 
-    if(IOT_LIB_FORMULAS_USE_FLOAT)
-        add_compile_definitions(IOT_LIB_FORMULAS_USE_FLOAT=1)
+    if(CONFIG_IOT_LIB_FORMULAS_USE_FLOAT)
+        add_compile_definitions(CONFIG_IOT_LIB_FORMULAS_USE_FLOAT=1)
     else()
-        add_compile_definitions(IOT_LIB_FORMULAS_USE_FLOAT=0)
+        add_compile_definitions(CONFIG_IOT_LIB_FORMULAS_USE_FLOAT=0)
     endif()
 
     add_subdirectory("lib")
