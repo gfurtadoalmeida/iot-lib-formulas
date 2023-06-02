@@ -19,7 +19,7 @@ extern "C"
  */
 #define EULER_NUMBER FLOAT_CONST(2.7182818284)
 
-#if IOT_LIB_FORMULAS_USE_FLOAT == 1
+#if CONFIG_IOT_LIB_FORMULAS_USE_FLOAT == 1
 #define FLOAT_POW powf
 #define FLOAT_LOG logf
 #define FLOAT_FLOOR floorf

@@ -1,0 +1,9 @@
+menu "IoT Library Formulas"
+
+    config IOT_LIB_FORMULAS_USE_FLOAT
+        bool "Use float as decimal type"
+        default y
+        help
+            Use float (32 bits) instead of double (64 bits) as decimal type.
+
+endmenu

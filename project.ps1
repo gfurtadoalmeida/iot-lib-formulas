@@ -18,7 +18,7 @@ switch ($args[0]) {
     'generate' {
         $UseFloat = ($args[1] -eq 'float') ? 1 : 0
 
-        cmake.exe -G 'Ninja' -DIOT_LIB_FORMULAS_USE_FLOAT:BOOL=$UseFloat -DBUILD_TEST:BOOL=ON -B "$WorkDir\$BuildPath"
+        cmake.exe -G 'Ninja' -DCONFIG_IOT_LIB_FORMULAS_USE_FLOAT:BOOL=$UseFloat -DBUILD_TEST:BOOL=ON -B "$WorkDir\$BuildPath"
     }
     'build' {
         cmake.exe --build "$WorkDir\$BuildPath" -v --config Release

@@ -7,7 +7,9 @@ A **C** library with functions for common formulas used by embedded systems.
 
 * Portable-ish: only `double` and `float` [depending on the compilation](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Choosing-the-Decimal-Type), are not portable.
 * Testable: 20+ tests.
-* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/): can be used as a [component](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html#component-cmakelists-files), with the name `iot-lib-formulas`.
+* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/) support:  
+   * Component name: `iot-lib-formulas`.
+   * Configurable: using [menuconfig](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html)
 
 ## Formulas For
 

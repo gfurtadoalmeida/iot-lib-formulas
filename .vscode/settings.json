@@ -17,7 +17,7 @@
   "cmake.generator": "Ninja",
   "cmake.platform": "",
   "cmake.configureArgs": [
-    "-DIOT_LIB_FORMULAS_USE_FLOAT:BOOL=ON",
+    "-DCONFIG_IOT_LIB_FORMULAS_USE_FLOAT:BOOL=ON",
     "-DBUILD_TEST:BOOL=ON",
     "CMAKE_EXPORT_COMPILE_COMMANDS"
   ],
