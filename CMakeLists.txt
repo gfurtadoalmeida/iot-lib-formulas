@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.8)
+cmake_minimum_required(VERSION 3.16)
 
 if(ESP_PLATFORM MATCHES 1)
     file(GLOB_RECURSE IOT_LIB_SOURCES "lib/src/*.c")
