@@ -37,7 +37,7 @@ jobs:
       run: .\project.ps1 test
 
     - name: Run Sonar Scanner
-      run: sonar-scanner --define sonar.login=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
+      run: sonar-scanner --define sonar.token=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
 
   build_double:
     runs-on: windows-2022
