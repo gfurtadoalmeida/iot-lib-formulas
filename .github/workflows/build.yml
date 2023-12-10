@@ -29,7 +29,7 @@ jobs:
         distribution: 'temurin'
 
     - name: Install Sonar
-      uses: sonarsource/sonarcloud-github-c-cpp@v1
+      uses: sonarsource/sonarcloud-github-c-cpp@v2
 
     - name: CMake Generate
       shell: pwsh
