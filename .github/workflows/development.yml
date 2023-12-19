@@ -22,7 +22,7 @@ jobs:
     runs-on: windows-2022
     strategy:
       matrix:
-        type: [float, double]
+        type: [double, float]
 
     steps:
     - uses: actions/checkout@v3
