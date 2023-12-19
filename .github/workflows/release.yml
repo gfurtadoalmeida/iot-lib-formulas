@@ -6,6 +6,31 @@ on:
       - 'v[0-9]+.[0-9]+.[0-9]+*'
 
 jobs:
+  build:
+    runs-on: windows-2022
+    strategy:
+      matrix:
+        type: [double, float]
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Get CMake and Ninja
+      uses: lukka/get-cmake@latest
+
+    - name: CMake Generate
+      shell: pwsh
+      run: .\project.ps1 generate ${{matrix.type}}
+
+    - name: CMake Build
+      shell: pwsh
+      run: .\project.ps1 build
+
+    - name: Run Tests
+      run: .\project.ps1 test
+
   release:
     runs-on: windows-2022
     permissions:
@@ -19,32 +44,6 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Setup Java
-      uses: actions/setup-java@v4
-      with:
-        java-version: '17'
-        distribution: 'temurin'
-
-    - name: Install Sonar
-      uses: sonarsource/sonarcloud-github-c-cpp@v2
-
-    - name: Get Latest CMake and Ninja
-      uses: lukka/get-cmake@latest
-
-    - name: CMake Generate
-      shell: pwsh
-      run: .\project.ps1 generate float
-
-    - name: CMake Build with Sonar
-      shell: pwsh
-      run: build-wrapper-win-x86-64.exe --out-dir build_wrapper_output pwsh.exe .\project.ps1 build
-
-    - name: Run Tests
-      run: .\project.ps1 test
-
-    - name: Run Sonar Scanner
-      run: sonar-scanner --define sonar.token=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}} --define sonar.projectVersion=${{github.ref_name}}
-
     - name: Create Zip
       shell: pwsh
       run: |
@@ -55,11 +54,11 @@ jobs:
         }
         Compress-Archive @compress
 
-    - name: Release
+    - name: Publish
       uses: ncipollo/release-action@v1
       with:
         allowUpdates: true
-        artifacts: "$Env:ZIP_NAME"
+        artifacts: "${{env.ZIP_NAME}}"
         makeLatest: true
-        removeArtifacts: true
+        removeArtifacts: false
         replacesArtifacts: true
