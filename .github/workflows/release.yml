@@ -1,0 +1,61 @@
+name: release
+
+on:
+  push:
+    tags:
+      - 'v[0-9]+.[0-9]+.[0-9]+*'
+
+jobs:
+  release:
+    runs-on: windows-2022
+    permissions:
+      contents: write
+
+    env:
+      ZIP_NAME: iot-lib-formulas.${{github.ref}}.zip
+
+    steps:
+    - uses: actions/checkout@v3
+      with:
+        fetch-depth: 0
+
+    - name: Setup Java
+      uses: actions/setup-java@v4
+      with:
+        java-version: '17'
+        distribution: 'temurin'
+
+    - name: Install Sonar
+      uses: sonarsource/sonarcloud-github-c-cpp@v2
+
+    - name: Get Latest CMake and Ninja
+      uses: lukka/get-cmake@latest
+
+    - name: CMake Generate
+      shell: pwsh
+      run: .\project.ps1 generate float
+
+    - name: CMake Build with Sonar
+      shell: pwsh
+      run: build-wrapper-win-x86-64.exe --out-dir build_wrapper_output pwsh.exe .\project.ps1 build
+
+    - name: Run Tests
+      run: .\project.ps1 test
+
+    - name: Run Sonar Scanner
+      run: sonar-scanner --define sonar.token=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}} --define sonar.projectVersion ${{github.ref}}
+
+    - name: Create Zip
+      shell: pwsh
+      run: |
+        $compress = @{
+          Path = "lib\", "CMakeLists.txt", "Kconfig"
+          CompressionLevel = "Optimal"
+          DestinationPath = $Env:ZIP_NAME
+        }
+        Compress-Archive @compress
+
+    - name: Release
+      uses: ncipollo/release-action@v1
+      with:
+        artifacts: "$Env:ZIP_NAME"
