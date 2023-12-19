@@ -12,7 +12,7 @@ jobs:
       contents: write
 
     env:
-      ZIP_NAME: iot-lib-formulas.${{github.ref}}.zip
+      ZIP_NAME: iot-lib-formulas.${{github.ref_name}}.zip
 
     steps:
     - uses: actions/checkout@v3
@@ -43,7 +43,7 @@ jobs:
       run: .\project.ps1 test
 
     - name: Run Sonar Scanner
-      run: sonar-scanner --define sonar.token=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}} --define sonar.projectVersion ${{github.ref}}
+      run: sonar-scanner --define sonar.token=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}} --define sonar.projectVersion=${{github.ref_name}}
 
     - name: Create Zip
       shell: pwsh
@@ -58,4 +58,8 @@ jobs:
     - name: Release
       uses: ncipollo/release-action@v1
       with:
+        allowUpdates: true
         artifacts: "$Env:ZIP_NAME"
+        makeLatest: true
+        removeArtifacts: true
+        replacesArtifacts: true
