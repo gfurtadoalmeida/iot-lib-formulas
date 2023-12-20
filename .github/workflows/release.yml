@@ -61,5 +61,6 @@ jobs:
         allowUpdates: true
         artifacts: "${{env.ZIP_NAME}}"
         makeLatest: true
+        name: IoT Lib Formulas ${{github.ref_name}}
         removeArtifacts: false
         replacesArtifacts: true
