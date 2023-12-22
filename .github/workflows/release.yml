@@ -49,9 +49,9 @@ jobs:
       shell: pwsh
       run: |
         $compress = @{
-          Path = "lib\", "CMakeLists.txt", "Kconfig"
-          CompressionLevel = "Optimal"
-          DestinationPath = $Env:ZIP_NAME
+          Path = 'lib\', 'CMakeLists.txt', 'Kconfig'
+          CompressionLevel = 'Optimal'
+          DestinationPath = '${{env.ZIP_NAME}}'
         }
         Compress-Archive @compress
 
