@@ -52,6 +52,7 @@ jobs:
         cp -r lib iot-lib-formulas
         cp CMakeLists.txt iot-lib-formulas
         cp Kconfig iot-lib-formulas
+        cp LICENSE iot-lib-formulas
         zip -r ${{env.ZIP_NAME}} iot-lib-formulas
         rm -r iot-lib-formulas
 
