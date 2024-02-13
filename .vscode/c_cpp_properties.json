@@ -13,12 +13,9 @@
       ],
       "cStandard": "c11",
       "cppStandard": "c++17",
-      "clang_format_style": "Visual Studio",
-      "compileCommands": "${workspaceFolder}/build/compile_commands.json",
+      "compileCommands": "${workspaceFolder}\\build\\compile_commands.json",
       "compilerPath": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Professional\\VC\\Tools\\MSVC\\14.35.32215\\bin\\Hostx86\\x86\\cl.exe",
       "configurationProvider": "ms-vscode.cmake-tools",
-      "intelliSenseEngine": "default",
-      "intelliSenseEngineFallback": "enabled",
       "intelliSenseMode": "windows-msvc-x86"
     }
   ],
