@@ -20,7 +20,7 @@ A **C** library with functions for common formulas used on embedded systems.
 
 ## Documentation
 
-Everything is on the [wiki](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki).
+Everything is at the [docs](/docs) folder.
 
 ## Example: Calculate Temperature in ºC from Thermistor on a Voltage Divider
 

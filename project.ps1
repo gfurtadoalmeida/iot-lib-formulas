@@ -27,6 +27,9 @@ switch ($args[0]) {
         & "$WorkDir\$BuildPath\test\test_app.exe" -v -c
     }
     Default {
-        Write-Error 'Invalid command'
+        Write-Host "Command not recognized. Valid commands:"
+        Write-Host "`t* generate: generate compilation files"
+        Write-Host "`t* build: build the project"
+        Write-Host "`t* test: run the tests"
     }
 }
