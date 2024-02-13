@@ -11,7 +11,7 @@ A **C** library with functions for common formulas used on embedded systems.
   * Component name: `iot-lib-formulas`.
   * Configurable: using [menuconfig](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html).
 
-## Formulas For
+## Functions For
 
 * [ADC](/docs/wiki/headers/adc.md)
 * [Temperature](/docs/wiki/headers/temperature.md)
