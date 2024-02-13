@@ -1,4 +1,4 @@
-# voltage_dividier.h
+# voltage_divider.h
 
 ## Functions
 

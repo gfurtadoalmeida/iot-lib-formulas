@@ -7,16 +7,16 @@ A **C** library with functions for common formulas used on embedded systems.
 
 * Portable-ish: only `double` and `float` [depending on the compilation](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Choosing-the-Decimal-Type), are not portable.
 * Testable: 20+ tests.
-* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/) support:  
-   * Component name: `iot-lib-formulas`.
-   * Configurable: using [menuconfig](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html)
+* [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/) support:
+  * Component name: `iot-lib-formulas`.
+  * Configurable: using [menuconfig](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html).
 
 ## Formulas For
 
-* [ADC](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/ADC)
-* [Temperature](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Temperature)
-* [Thermistor](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Thermistor)
-* [Voltage Divider](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Voltage-Divider)
+* [ADC](/docs/wiki/headers/adc.md)
+* [Temperature](/docs/wiki/headers/temperature.md)
+* [Thermistor](/docs/wiki/headers/thermistor.md)
+* [Voltage Divider](/docs/wiki/headers/voltage_divider.md)
 
 ## Documentation
 
