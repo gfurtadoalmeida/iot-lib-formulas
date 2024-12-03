@@ -1,17 +1,18 @@
 # IoT Formulas Library
 
-![GitHub Build Status](https://github.com/gfurtadoalmeida/iot-lib-formulas/actions/workflows/release.yml/badge.svg) [![Bugs](https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=bugs)](https://sonarcloud.io/summary/new_code?id=iot_lib_formulas) [![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=code_smells)](https://sonarcloud.io/summary/new_code?id=iot_lib_formulas) [![Maintainability Rating](https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=sqale_rating)](https://sonarcloud.io/summary/new_code?id=iot_lib_formulas) [![Security Rating](https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=security_rating)](https://sonarcloud.io/summary/new_code?id=iot_lib_formulas) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=iot_lib_formulas)  
+[![GitHub Release Status][git-bagdge-release]][git-release] [![Bugs][sonar-badge-bugs]][sonar-home] [![Code Smells][sonar-badge-smells]][sonar-home] [![Security Rating][sonar-badge-security]][sonar-home] [![Quality Gate Status][sonar-badge-quality]][sonar-home]  
+
 A **C** library with functions for common formulas used on embedded systems.  
 
 ## Characteristics
 
-* Portable-ish: only `double` and `float` [depending on the compilation](https://github.com/gfurtadoalmeida/iot-lib-formulas/wiki/Choosing-the-Decimal-Type), are not portable.
+* Portable-ish: only `double` and `float` [depending on the compilation](docs/wiki/how_to_use.md), are not portable.
 * Testable: 20+ tests.
 * [ESP-IDF](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/get-started/) support:
   * Component name: `iot-lib-formulas`.
   * Configurable: using [menuconfig](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html).
 
-## Functions For
+## Functions
 
 * [ADC](/docs/wiki/headers/adc.md)
 * [Temperature](/docs/wiki/headers/temperature.md)
@@ -45,3 +46,15 @@ void app_main(void)
     prinft("Temperature: %f celsius", celsius);
 }
 ```
+
+## Contributing
+
+To contribute to this project make sure to read our [CONTRIBUTING.md](/docs/CONTRIBUTING.md) file.
+
+[git-bagdge-release]: https://github.com/gfurtadoalmeida/iot-lib-formulas/actions/workflows/release.yml/badge.svg
+[git-release]: https://github.com/gfurtadoalmeida/iot-lib-formulas/releases
+[sonar-badge-bugs]: https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=bugs
+[sonar-badge-quality]: https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=alert_status
+[sonar-badge-security]: https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=security_rating
+[sonar-badge-smells]: https://sonarcloud.io/api/project_badges/measure?project=iot_lib_formulas&metric=code_smells
+[sonar-home]: https://sonarcloud.io/project/overview?id=iot_lib_formulas
