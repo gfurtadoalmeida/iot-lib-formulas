@@ -68,7 +68,11 @@ jobs:
 
     - name: CMake Build with Sonar
       shell: pwsh
-      run: build-wrapper-win-x86-64.exe --out-dir build_wrapper_output pwsh.exe .\project.ps1 build
+      run: build-wrapper-win-x86-64.exe --out-dir build_wrapper_output pwsh.exe .\project.ps1 build Debug
+
+    - name: Run Tests
+      shell: pwsh
+      run: .\project test-generate-report
 
     - name: Run Sonar Scanner
       run: sonar-scanner --define sonar.token=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
