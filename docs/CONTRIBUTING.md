@@ -105,9 +105,9 @@ Enhancement suggestions are tracked as [GitHub issues][issues-page].
 
 ## Requirements
 
-* [MSVC C++ compiler](https://visualstudio.microsoft.com/vs/features/cplusplus/)
 * [CMake](https://cmake.org/)
 * [Ninja](https://github.com/ninja-build/ninja)
+* [Visual Studio][vs-site] with [C++ Tools][vs-cpp]
 
 ## Attribution
 
@@ -117,3 +117,5 @@ This guide is based on the **contributing.md**. [Make your own](https://contribu
 [issues-page]: https://github.com/gfurtadoalmeida/iot-lib-formulas/issues
 [issues-new]: https://github.com/gfurtadoalmeida/iot-lib-formulas/issues/new/choose
 [twitter]: https://x.com/gfurtadoalmeida
+[vs-cpp]: https://visualstudio.microsoft.com/vs/features/cplusplus/
+[vs-site]: https://visualstudio.microsoft.com/
