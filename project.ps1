@@ -17,15 +17,15 @@ switch ($args[0]) {
     'generate' {
         $UseFloat = ($args[1] -eq 'float') ? 1 : 0
 
-        cmake.exe -G 'Ninja' -DCONFIG_IOT_LIB_FORMULAS_USE_FLOAT:BOOL=$UseFloat -DBUILD_TEST:BOOL=ON -B "$WorkDir\$BuildPath"
+        &cmake.exe -G 'Ninja' -DCONFIG_IOT_LIB_FORMULAS_USE_FLOAT:BOOL=$UseFloat -DBUILD_TEST:BOOL=ON -B "$WorkDir\$BuildPath"
     }
     'build' {
         $Config = ($args.Count -eq 0) ? 'Release' : $args[1]
 
-        cmake.exe --build "$WorkDir\$BuildPath" -v --config "$Config"
+        &cmake.exe --build "$WorkDir\$BuildPath" -v --config "$Config"
     }
     'test' {
-        & "$WorkDir\$BuildPath\test\test_app.exe" --gtest_brief=1 --gtest_print_time=1
+        &"$WorkDir\$BuildPath\test\test_app.exe" --gtest_brief=1 --gtest_print_time=1
     }
     'test-generate-report' {
         $App = "$WorkDir\$BuildPath\test\test_app.exe"
