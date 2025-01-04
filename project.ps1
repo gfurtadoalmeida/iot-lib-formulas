@@ -28,7 +28,7 @@ switch ($args[0]) {
         & "$WorkDir\$BuildPath\test\test_app.exe" --gtest_brief=1 --gtest_print_time=1
     }
     'test-generate-report' {
-        $App = "$WorkDir\$BuildPath\test\test_app"
+        $App = "$WorkDir\$BuildPath\test\test_app.exe"
         $Config = "$WorkDir\coverage.runsettings"
         $Coverage = "$WorkDir\$BuildPath\test\coverage.xml"
 
