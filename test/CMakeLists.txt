@@ -1,23 +1,33 @@
-file(GLOB srcs "tests/*.cpp")
+file(GLOB_RECURSE srcs "*.cpp")
 
-list(APPEND srcs "test_runner.cpp")
+enable_testing()
 
 add_executable(test_app ${srcs})
+
+set_target_properties(test_app PROPERTIES LINK_FLAGS /PROFILE)
+set_target_properties(iot-lib-formulas PROPERTIES LINK_FLAGS /PROFILE;/DEBUG:FULL;/DEBUGTYPE:cv,fixup;/OPT:REF;/OPT:NOICF;/INCREMENTAL:NO;/FIXED:NO)
+
+target_include_directories(test_app
+  PRIVATE
+  .
+  ${CMAKE_SOURCE_DIR}/lib
+)
 
 include(FetchContent)
 
 FetchContent_Declare(
-    CppUTest
-    GIT_REPOSITORY https://github.com/cpputest/cpputest.git
-    GIT_TAG        latest-passing-build
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG main
 )
 
-set(TESTS OFF CACHE BOOL "Switch off CppUTest Self-Test build")
+# For Windows: Prevent overriding the parent project's compiler/linker settings.
+set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
 
-FetchContent_MakeAvailable(CppUTest)
-
-target_include_directories(test_app PRIVATE "../lib/include")
-target_include_directories(test_app PRIVATE "../lib/private_include")
-
+target_link_libraries(test_app PRIVATE gtest)
 target_link_libraries(test_app PRIVATE iot-lib-formulas)
-target_link_libraries(test_app PRIVATE CppUTest CppUTestExt)
+
+include(GoogleTest)
+
+gtest_discover_tests(test_app)

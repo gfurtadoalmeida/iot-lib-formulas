@@ -7,8 +7,8 @@
             "request": "launch",
             "program": "${workspaceFolder}/build/test/test_app.exe",
             "args": [
-                "-c",
-                "-v"
+                "--gtest_brief=1",
+                "--gtest_print_time=1"
             ],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",
