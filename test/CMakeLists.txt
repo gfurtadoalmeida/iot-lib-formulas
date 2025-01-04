@@ -25,9 +25,6 @@ FetchContent_Declare(
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
-target_include_directories(test_app PRIVATE "../lib/include")
-target_include_directories(test_app PRIVATE "../lib/private_include")
-
 target_link_libraries(test_app PRIVATE gtest)
 target_link_libraries(test_app PRIVATE iot-lib-formulas)
 
