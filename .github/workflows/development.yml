@@ -56,8 +56,8 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    - name: Install Sonar
-      uses: sonarsource/sonarcloud-github-c-cpp@v2
+    - name: Install Build Wrapper
+      uses: sonarsource/sonarqube-scan-action/install-build-wrapper@v5
 
     - name: Get CMake and Ninja
       uses: lukka/get-cmake@latest
@@ -74,5 +74,9 @@ jobs:
       shell: pwsh
       run: .\project test-generate-report
 
-    - name: Run Sonar Scanner
-      run: sonar-scanner --define sonar.token=${{secrets.SONARCLOUD_TOKEN}} --define sonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
+    - name: SonarCloud Scan
+      uses: sonarsource/sonarqube-scan-action@v5
+      with:
+        args: -Dsonar.organization=${{secrets.SONARCLOUD_ORGANIZATION}}
+      env:
+        SONAR_TOKEN: ${{secrets.SONARCLOUD_TOKEN}}
